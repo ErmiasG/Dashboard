@@ -1,20 +1,12 @@
-node_modules
-dist
-.idea
-.tmp
-.sass-cache
-app/bower_components
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components
 
-# NetBeans specific
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
-# Maven 
-target/
-
-*~
+.bowerrc
+.editorconfig
+.gitattributes
+.jscsrc
+.jshintrc
+.yo-rc.json
