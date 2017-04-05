@@ -103,11 +103,19 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
+  border-radius: 0px !important;
   border-bottom: 1px solid #e5e5e5;
+  background-color:#7D32B4;/* #AFB8DD; /*#737CA1; #4B0082; #151B54;*/
+  background-size: cover;
+  background-image: url("../images/network.png");
 }
 .jumbotron .btn {
-  font-size: 21px;
+  font-size: 15px;
   padding: 14px 24px;
+}
+
+.jumbotron > h1 {
+  font-size: 36px;
 }
 
 /* Supporting marketing content */
@@ -116,6 +124,30 @@ body {
 }
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+.carousel-caption {
+  background-color: transparent;
+  position: static;
+  padding: 0 20px;
+}
+.carousel-caption h1,
+.carousel-caption .lead {
+  margin: 0;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.carousel-caption .btn {
+  margin-top: 10px;
+}
+.carousel-control {
+  margin-top: 0;
+  font-size: 120px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  background-color: transparent;
+  border: 0;
+  z-index: 10;
 }
 
 /* Responsive: Portrait tablets and up */
