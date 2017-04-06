@@ -30,6 +30,47 @@ body {
   padding-bottom: 19px;
 }
 
+.nav-pills > .active > a {
+  text-decoration: none;
+  border-radius:0px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #FF6600;
+  color: #000 !important;
+  background-color: transparent !important;
+}
+
+.nav-pills > li > a:hover {
+  text-decoration: none;
+  border-radius:0px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: gray;
+  background-color: transparent !important;
+}
+.nav-pills > li > a{
+  border-radius:0px;
+}
+
+.nav-pills {
+  font-size: 12px;
+  line-height: 0;
+}
+
+.panel-default > .panel-heading {
+  font-weight: bold;
+}
+.panel-body {
+  border-bottom: 1px solid #ddd;
+}
+.panel-body-no-padding {
+  padding-bottom: 0px;
+}
+
+.panel-footer .pager {
+  margin: 0;
+}
+
 .header .navbar-search {
   background-color: rgba(255,255,255,0.125);
   outline: none;
@@ -148,6 +189,10 @@ body {
   background-color: transparent;
   border: 0;
   z-index: 10;
+}
+
+.carousel-indicators {
+  top: 105%;
 }
 
 /* Responsive: Portrait tablets and up */

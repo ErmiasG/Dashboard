@@ -4,33 +4,38 @@
         <div class="item active">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
+              <h1>Spark tour.</h1>
               <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+              <a class="btn btn-large btn-success" href="#">Sign up today</a>
             </div>
           </div>
         </div>
         <div class="item">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
+              <h1>Kafka tour.</h1>
               <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+              <a class="btn btn-large btn-success" href="#">Learn more</a>
             </div>
           </div>
         </div>
         <div class="item">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
+              <h1>Zeppelin tour.</h1>
               <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+              <a class="btn btn-large btn-success" href="#">Browse gallery</a>
             </div>
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+      <a class="left carousel-control"  data-target="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" data-target="#myCarousel" data-slide="next">›</a>
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
     </div><!-- /.carousel -->
 <!--  <h2>Welcom to Hopsworks!</h2>
   <p class="lead">
@@ -41,25 +46,59 @@
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="col-md-7">
+    <h4>HTML5 Boilerplate</h4>
+    <p>
+      HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <h4>Angular</h4>
+    <p>
+      AngularJS is a toolset for building the framework most suited to your application development.
+    </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <h4>Karma</h4>
+    <p>Spectacular Test Runner for JavaScript.</p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        Projects <span class="badge">999</span>
+        <div class="pull-right">
+            <a href="#" class="btn btn-success">New project</a>
+        </div>
+      </div>
+      <div class="panel-body panel-body-no-padding" style="">
+        <form class="form">
+          <div class="form-group">
+            <input type="text" class="form-control navbar-search" placeholder="Search projects ...">
+          </div>
+        </form>
+        <ul class="nav nav-pills" id="mynavPills">
+           <li class="item active">
+             <a data-target="#mynavPills" data-slide-to="0" class="active">Own</a>
+           </li>
+           <li class="item">
+             <a data-target="#mynavPills" data-slide-to="1">Member of</a>
+           </li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        Project1
+      </div>
+      <div class="panel-body">
+        Project2
+      </div>
+      <div class="panel-footer clearfix">
+        <nav aria-label="...">
+          <ul class="pager">
+            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
 </div>
