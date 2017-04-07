@@ -1,103 +1,123 @@
-<div class="jumbotron">
-  <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="item active">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Spark tour.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-success" href="#">Sign up today</a>
+<div ng-controller="MainCtrl as mainCtrl" ng-init="jumbotronClose = false">
+  <div class="jumbotron" ng-show="jumbotronClose == false">
+    <div class="jumbotron-close">
+      <a ng-click="jumbotronClose = true" title="click to minimize"><span>x</span> Dismiss</a>
+    </div>
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Spark tour.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Kafka tour.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Zeppelin tour.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Public Datasets.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <a class="btn btn-large btn-warning btn-carousel" href="#">Explore</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Kafka tour.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-success" href="#">Learn more</a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Zeppelin tour.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <a class="btn btn-large btn-success" href="#">Browse gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control"  data-target="#myCarousel" data-slide="prev">‹</a>
-      <a class="right carousel-control" data-target="#myCarousel" data-slide="next">›</a>
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-    </div><!-- /.carousel -->
-<!--  <h2>Welcom to Hopsworks!</h2>
-  <p class="lead">
-    <img class="text-muted" style="opacity: 0.1;" src="images/hops-black.png" alt="hops"><br>
-    Checkout some of our tours.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>-->
-</div>
-
-<div class="row marketing">
-  <div class="col-md-7">
-    <h4>HTML5 Boilerplate</h4>
-    <p>
-      HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+        <a class="left carousel-control"  data-target="#myCarousel" data-slide="prev">‹</a>
+        <a class="right carousel-control" data-target="#myCarousel" data-slide="next">›</a>
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+      </div><!-- /.carousel -->
+  <!--  <h2>Welcom to Hopsworks!</h2>
+    <p class="lead">
+      <img class="text-muted" style="opacity: 0.1;" src="images/hops-black.png" alt="hops"><br>
+      Checkout some of our tours.
     </p>
-
-    <h4>Angular</h4>
-    <p>
-      AngularJS is a toolset for building the framework most suited to your application development.
-    </p>
-
-    <h4>Karma</h4>
-    <p>Spectacular Test Runner for JavaScript.</p>
-
+    <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>-->
   </div>
 
-  <div class="col-md-5">
-    <div class="panel panel-default">
-      <div class="panel-heading clearfix">
-        Projects <span class="badge">999</span>
-        <div class="pull-right">
-            <a href="#" class="btn btn-success">New project</a>
-        </div>
-      </div>
-      <div class="panel-body panel-body-no-padding" style="">
-        <form class="form">
-          <div class="form-group">
-            <input type="text" class="form-control navbar-search" placeholder="Search projects ...">
+  <div class="row">
+    <div class="col-md-7 hopsworks-newsfeed">
+      <h3>Discover interesting datasets</h3>
+      <p>
+        You can use the search or goto public datasets to discover what people are sharing.
+      </p>
+
+      <h3>Discover interesting projects</h3>
+      <p>
+        You can also search for projects and send the owner a request to join thier project.
+      </p>
+
+      <h3>Explore hopsworks</h3>
+      <p>Explore hopsworks by taking one of our tours.</p>
+
+    </div>
+
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          Projects <span class="badge">2</span>
+          <div class="pull-right">
+              <a href="#" class="btn btn-success">New project</a>
           </div>
-        </form>
-        <ul class="nav nav-pills" id="mynavPills">
-           <li class="item active">
-             <a data-target="#mynavPills" data-slide-to="0" class="active">Own</a>
-           </li>
-           <li class="item">
-             <a data-target="#mynavPills" data-slide-to="1">Member of</a>
-           </li>
-        </ul>
-      </div>
-      <div class="panel-body">
-        Project1
-      </div>
-      <div class="panel-body">
-        Project2
-      </div>
-      <div class="panel-footer clearfix">
-        <nav aria-label="...">
-          <ul class="pager">
-            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </div>
+        <div class="panel-body panel-body-no-padding" style="">
+          <form class="form">
+            <div class="form-group">
+              <input type="text" class="form-control navbar-search" placeholder="Search projects ...">
+            </div>
+          </form>
+          <ul class="nav nav-pills" ng-init="activeAll = true; activeOwn = false; activeMember = false;">
+            <li ng-class="{active: activeAll}">
+              <a ng-click="activeAll = true; activeOwn = false; activeMember = false;">All</a>
+            </li>
+             <li ng-class="{active: activeOwn}">
+               <a ng-click="activeAll = false; activeOwn = true; activeMember = false;">My own</a>
+             </li>
+             <li ng-class="{active: activeMember}">
+               <a ng-click="activeAll = false; activeOwn = false; activeMember = true;">Member of</a>
+             </li>
           </ul>
-        </nav>
+        </div>
+        <div class="panel-body">
+          <i style="font-size: 20px;" class="fa fa-unlock fa-2 pull-left"></i>
+          Project1
+        </div>
+        <div class="panel-body">
+          <i style="font-size: 20px;" class="fa fa-lock fa-2 pull-left"></i>
+          Project2
+        </div>
+        <div class="panel-footer clearfix">
+          <nav aria-label="...">
+            <ul class="pager">
+              <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+              <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>

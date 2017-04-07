@@ -82,6 +82,11 @@ body {
   min-width: 315px !important;
 }
 
+.badge {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 35px;
+}
 .hopsworks-badge {
   background-color: #f89406;
   font-family: sans-serif;
@@ -90,9 +95,6 @@ body {
   top: -10px;
   right: 6px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 35px;
 }
 
 .hopsworks-brand {
@@ -131,7 +133,6 @@ body {
 }
 
 .footer .marker-hops {
-  position: absolute;
   left: 50%;
   width: 25;
   opacity: 0.2;
@@ -146,9 +147,10 @@ body {
   text-align: center;
   border-radius: 0px !important;
   border-bottom: 1px solid #e5e5e5;
-  background-color:#7D32B4;/* #AFB8DD; /*#737CA1; #4B0082; #151B54;*/
+  background-color: #98AFC7; /*#7D32B4;/* #AFB8DD; /*#737CA1; #4B0082; #151B54;*/
   background-size: cover;
   background-image: url("../images/network.png");
+
 }
 .jumbotron .btn {
   font-size: 15px;
@@ -157,6 +159,19 @@ body {
 
 .jumbotron > h1 {
   font-size: 36px;
+}
+
+.jumbotron-close {
+  float: right;
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+.jumbotron-close > a {
+  font-size: 12px;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Supporting marketing content */
@@ -179,20 +194,31 @@ body {
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
 }
-.carousel-caption .btn {
+.btn-carousel {
   margin-top: 10px;
 }
 .carousel-control {
   margin-top: 0;
-  font-size: 120px;
+  font-size: 110px;
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
   background-color: transparent;
   border: 0;
   z-index: 10;
+  opacity: 0.2;
+}
+
+.carousel-control:hover {
+   opacity: 0.5;
 }
 
 .carousel-indicators {
   top: 105%;
+}
+
+
+
+.hopsworks-newsfeed > p {
+  font-size: 16px;
 }
 
 /* Responsive: Portrait tablets and up */
