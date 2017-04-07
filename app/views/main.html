@@ -1,4 +1,4 @@
-<div ng-controller="MainCtrl as mainCtrl" ng-init="jumbotronClose = false">
+<div ng-init="jumbotronClose = false">
   <div class="jumbotron" ng-show="jumbotronClose == false">
     <div class="jumbotron-close">
       <a ng-click="jumbotronClose = true" title="click to minimize"><span>x</span> Dismiss</a>
@@ -8,8 +8,8 @@
           <div class="item active">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Spark tour.</h1>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <h2>Spark Tour.</h2>
+                <p class="lead">Apache Spark™ is a fast and general engine for large-scale data processing.</p>
                 <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
               </div>
             </div>
@@ -17,8 +17,8 @@
           <div class="item">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Kafka tour.</h1>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <h2>Kafka Tour.</h2>
+                <p class="lead">Kafka™ is used for building real-time data pipelines and streaming apps.</p>
                 <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
               </div>
             </div>
@@ -26,8 +26,8 @@
           <div class="item">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Zeppelin tour.</h1>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <h2>Zeppelin Tour.</h2>
+                <p class="lead">Apache Zeppelin™ A web-based notebook that enables interactive data analytics.</p>
                 <a class="btn btn-large btn-warning btn-carousel" href="#">Start tour</a>
               </div>
             </div>
@@ -35,8 +35,8 @@
           <div class="item">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Public Datasets.</h1>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <h2>Public Datasets.</h2>
+                <p class="lead">Dela is a peer to peer dataset sharing app.</p>
                 <a class="btn btn-large btn-warning btn-carousel" href="#">Explore</a>
               </div>
             </div>
@@ -51,23 +51,17 @@
           <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
       </div><!-- /.carousel -->
-  <!--  <h2>Welcom to Hopsworks!</h2>
-    <p class="lead">
-      <img class="text-muted" style="opacity: 0.1;" src="images/hops-black.png" alt="hops"><br>
-      Checkout some of our tours.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>-->
   </div>
 
   <div class="row">
     <div class="col-md-7 hopsworks-newsfeed">
-      <h3>Discover interesting datasets</h3>
+      <h4>Discover interesting datasets</h4>
       <p>You can use the search or <a>goto public datasets</a> to discover what people are sharing.</p>
-      <h3>Discover interesting projects</h3>
+      <h4>Discover interesting projects</h4>
       <p>You can also search for projects and send the owner a request to join thier project.</p>
-      <h3>Explore hopsworks</h3>
+      <h4>Explore hopsworks</h4>
       <p>Explore hopsworks by taking one of our <a>tours.</a></p>
-      <h3>Need help</h3>
+      <h4>Need help</h4>
       <p>If you need help or want to report a bug goto <a>click here.</a></p>
     </div>
 

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name dashboardApp.controller:AboutCtrl
+ * @name dashboardApp.controller:LoginCtrl
  * @description
- * # AboutCtrl
+ * # LoginCtrl
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('AboutCtrl', function () {
+  .controller('LoginCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
