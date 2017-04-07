@@ -49,3 +49,4 @@ describe('Controller: MyrouteCtrl', function () {
   // ...
 }
 ```
+For more AngularJS generator see https://github.com/yeoman/generator-angular.
