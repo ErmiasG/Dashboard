@@ -1,0 +1,20 @@
+#search-nav {
+  margin-bottom: 0;
+}
+#search-nav > li.dropdown.open {
+  position: static  !important;
+}
+#search-nav > li.dropdown.open .dropdown-menu {
+  display:table;
+  width: 100%  !important;
+  text-align: center;
+  left:0;
+  right:0; }
+#search-nav .dropdown-menu > li {
+  display:
+  table-cell;
+}
+
+.search-body {
+  min-height: 300px;
+}

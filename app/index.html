@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/search.css">
     <!-- endbuild -->
   </head>
   <body ng-app="dashboardApp">
@@ -48,26 +49,26 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-bell-o fa-lg" aria-hidden="true">
                     <span class="badge hopsworks-badge">999</span>
                   </i>
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="#"><i class="fa fa-circle pull-left" style="color:#f89406" title="Unread message"></i>
+                    <a href="#!/message"><i class="fa fa-circle pull-left" style="color:#f89406" title="Unread message"></i>
                       Something else here Something else here Something else here. </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-circle-o pull-left" style="color:grey" title="Read message"></i>
+                    <a href="#!/message"><i class="fa fa-circle-o pull-left" style="color:grey" title="Read message"></i>
                       Something else here Something else here Something else here. </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-circle-o pull-left" style="color:grey" title="Read message"></i>
+                    <a href="#!/message"><i class="fa fa-circle-o pull-left" style="color:grey" title="Read message"></i>
                       Something else here Something else here Something else here. </a>
                   </li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">See all messages</a></li>
+                  <li><a href="#!/message">See all messages</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -88,8 +89,11 @@
         </div>
       </div>
     </div>
-
     <div class="container">
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error!</strong> Database unavailable.
+      </div>
       <div ng-view=""></div>
     </div>
 

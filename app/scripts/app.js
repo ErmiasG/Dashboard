@@ -24,6 +24,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .when('/message', {
         templateUrl: 'views/message.html',
         controller: 'MessageCtrl',
@@ -48,11 +53,6 @@ angular
         templateUrl: 'views/profile.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
