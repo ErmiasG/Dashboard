@@ -11,10 +11,12 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-growl-v2/build/angular-growl.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sidenav.css">
     <link rel="stylesheet" href="styles/search.css">
     <!-- endbuild -->
   </head>
@@ -24,9 +26,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
+    <div ng-if="logedIn" class="header">
       <div class="navbar navbar-inverse" role="navigation">
-        <div class="container">
+        <div class="container" ng-class="{'container-full-width': projectId}">
           <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -43,6 +45,13 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
             <form class="navbar-form navbar-left">
+              <div ng-if="false" class="form-group">
+                <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button>
+              </div>
               <div class="form-group">
                 <input type="text" class="form-control navbar-search" placeholder="Search">
               </div>
@@ -89,15 +98,40 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div growl reference="1"></div>
+    <div class="container container-body" ng-class="{'container-full-width': projectId, 'container-full': !logedIn}">
       <div class="alert alert-danger alert-dismissable">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Error!</strong> Database unavailable.
       </div>
+      <!-- Sidebar -->
+      <nav ng-if="logedIn && projectId" class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand"><a href="#">ProjectName</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Team</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Dropdown heading</li>
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="https://twitter.com/maridlcrmn">Follow me</a></li>
+        </ul>
+      </nav>
       <div ng-view=""></div>
     </div>
 
-    <div class="container">
+    <div ng-if="logedIn" class="container" ng-class="{'container-full-width': projectId}">
       <div class="footer">
         <div class="row">
           <div class="col-md-5">
@@ -142,6 +176,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

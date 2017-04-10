@@ -54,7 +54,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-7 hopsworks-newsfeed">
+    <div class="col-md-8 hopsworks-newsfeed">
       <h4>Discover interesting datasets</h4>
       <p>You can use the search or <a href="#!/publicDataset">goto public datasets</a> to discover what people are sharing.</p>
       <h4>Discover interesting projects</h4>
@@ -65,7 +65,7 @@
       <p>If you need help or want to report a bug goto <a>click here.</a></p>
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
           Projects <span class="badge">2</span>
@@ -79,15 +79,18 @@
               <input type="text" class="form-control navbar-search" placeholder="Search projects ...">
             </div>
           </form>
-          <ul class="nav nav-pills" ng-init="activeAll = true; activeOwn = false; activeMember = false;">
+          <ul class="nav nav-pills" ng-init="activeAll = true; activeOwn = false; activeOwner = false; activeScientist = false;">
             <li ng-class="{active: activeAll}">
-              <a ng-click="activeAll = true; activeOwn = false; activeMember = false;">All</a>
+              <a ng-click="activeAll = true; activeOwn = false; activeOwner = false; activeScientist = false;">All</a>
             </li>
              <li ng-class="{active: activeOwn}">
-               <a ng-click="activeAll = false; activeOwn = true; activeMember = false;">My own</a>
+               <a ng-click="activeAll = false; activeOwn = true; activeOwner = false; activeScientist = false;">Owner</a>
              </li>
-             <li ng-class="{active: activeMember}">
-               <a ng-click="activeAll = false; activeOwn = false; activeMember = true;">Member of</a>
+             <li ng-class="{active: activeOwner}">
+               <a ng-click="activeAll = false; activeOwn = false; activeOwner = true; activeScientist = false;">Data owner</a>
+             </li>
+             <li ng-class="{active: activeScientist}">
+               <a ng-click="activeAll = false; activeOwn = false; activeOwner = false; activeScientist = true;">Data scientist</a>
              </li>
           </ul>
         </div>
