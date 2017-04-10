@@ -94,13 +94,9 @@
              </li>
           </ul>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ng-repeat="project in main.projects">
           <i style="font-size: 20px;" class="fa fa-unlock-alt pull-left" title="My own project"></i>
-          Project1
-        </div>
-        <div class="panel-body">
-          <i style="font-size: 20px;" class="fa fa-lock pull-left" title="Project I am a member of"></i>
-          Project2
+          {{project}}
         </div>
         <div class="panel-footer clearfix">
           <nav aria-label="...">
