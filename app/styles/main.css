@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -58,10 +59,12 @@ body {
   line-height: 0;
 }
 
-.panel-default > .panel-heading {
+ .project-panel-heading {
   font-weight: bold;
+  font-size: 1.2em;
 }
-.panel-body {
+
+.panal-body-border {
   border-bottom: 1px solid #ddd;
 }
 .panel-body-no-padding {
@@ -82,6 +85,14 @@ body {
   box-shadow: none !important;
   color:#fff;
   min-width: 315px !important;
+}
+
+.project-heading {
+  margin-top: 3px;
+}
+
+.pointer-link {
+  cursor: pointer; 
 }
 
 .badge {
@@ -158,10 +169,6 @@ body {
   padding: 0px;
 }
 
-.login-page {
-    width: 100%;
-    height: 100%;
-}
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
