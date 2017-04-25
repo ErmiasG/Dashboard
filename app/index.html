@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/sidenav.css">
     <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/message.css">
+    <link rel="stylesheet" href="styles/login.css">
     <!-- endbuild -->
   </head>
   <body ng-app="dashboardApp">
@@ -101,7 +103,7 @@
     <div growl reference="1"></div>
     <div class="container container-body" ng-class="{'container-full-width': projectId, 'container-full': !logedIn}">
       <div class="alert alert-danger alert-dismissable">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Error!</strong> Database unavailable.
       </div>
       <!-- Sidebar -->
@@ -125,7 +127,7 @@
             </li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="https://twitter.com/maridlcrmn">Follow me</a></li>
+            <li><a href="#">Follow me</a></li>
         </ul>
       </nav>
       <div ng-view=""></div>

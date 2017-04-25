@@ -8,10 +8,11 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('MessageCtrl', function () {
+  .controller('MessageCtrl', ['$rootScope', function ($rootScope) {
+    $rootScope.logedIn = true;
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);

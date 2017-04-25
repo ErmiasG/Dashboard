@@ -63,6 +63,7 @@ body {
 }
 .panel-body {
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 .panel-body-no-padding {
   padding-bottom: 0px;
