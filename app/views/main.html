@@ -62,18 +62,18 @@
       <h4>Explore hopsworks</h4>
       <p>Explore hopsworks by taking one of our <a>tours.</a></p>
       <h4>Need help</h4>
-      <p>If you need help or want to report a bug goto <a>click here.</a></p>
+      <p>If you need help or want to report a bug <a>click here.</a></p>
     </div>
 
     <div class="col-md-4">
       <div class="panel panel-default">
-        <div class="panel-heading clearfix">
-          Projects <span class="badge">2</span>
+        <div class="panel-heading project-panel-heading clearfix">
+          <span class="project-heading">Projects</span> <span class="badge">2</span>
           <div class="pull-right">
               <a href="#" class="btn btn-success">New project</a>
           </div>
         </div>
-        <div class="panel-body panel-body-no-padding" style="">
+        <div class="panel-body panel-body-no-padding panal-body-border" style="">
           <form class="form">
             <div class="form-group">
               <input type="text" class="form-control navbar-search" placeholder="Search projects ...">
@@ -94,9 +94,9 @@
              </li>
           </ul>
         </div>
-        <div class="panel-body" ng-repeat="project in main.projects">
+        <div class="panel-body panal-body-border text-muted pointer-link" ng-repeat="project in main.projects" >
           <i style="font-size: 20px;" class="fa fa-unlock-alt pull-left" title="My own project"></i>
-          {{project}}
+          {{ project}}
         </div>
         <div class="panel-footer clearfix">
           <nav aria-label="...">
