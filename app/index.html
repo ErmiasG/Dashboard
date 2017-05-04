@@ -30,7 +30,7 @@
 
     <!-- Add your site or application content here -->
     <nav ng-if="logedIn" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container" ng-class="{'container-full-width': projectId}">
+      <div class="container" ng-class="{'container-full-width': projectId > 0}">
         <div class="navbar-header">
 
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -46,14 +46,14 @@
         </div>
 
         <div class="collapse navbar-collapse" id="js-navbar-collapse">
-          <form class="navbar-form navbar-left">
-            <div ng-if="false" class="form-group">
+          <div ng-if="projectId > 0" class="navbar-form navbar-left">
               <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
                   <span class="hamb-top"></span>
                   <span class="hamb-middle"></span>
                   <span class="hamb-bottom"></span>
               </button>
-            </div>
+          </div>
+          <form class="navbar-form navbar-left">
             <div class="form-group">
               <input type="text" class="form-control navbar-search" placeholder="Search">
             </div>
@@ -99,39 +99,41 @@
         </div>
     </nav>
     <div growl reference="1"></div>
-    <div class="container container-body" ng-class="{'container-full-width': projectId, 'container-full': !logedIn}">
-      <div class="alert alert-danger alert-dismissable">
-        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Error!</strong> Database unavailable.
+    <div class="container container-body" ng-class="{'container-full-width': projectId > 0, 'container-full': !logedIn}">
+      <div id="wrapper">
+          <div class="overlay"></div>
+          <div class="alert alert-danger alert-dismissable">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> Database unavailable.
+          </div>
+          <!-- Sidebar -->
+          <nav ng-if="logedIn && projectId > 0" class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand"><a href="#!/project">ProjectName</a></li>
+                <li><a >Jupyter</a></li>
+                <li><a >Zeppelin</a></li>
+                <li><a >Job</a></li>
+                <li><a >P2P</a></li>
+                <hr>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown">Datasets <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Datasets in project</li>
+                    <li><a >New</a></li>
+                    <li><a >Explore</a></li>
+                  </ul>
+                </li>
+                <hr>
+                <li><a >Setting</a></li>
+                <li><a >Members</a></li>
+                <li><a >Github</a></li>
+            </ul>
+          </nav>
+          <div ng-view=""></div>
       </div>
-      <!-- Sidebar -->
-      <nav ng-if="logedIn && projectId !== 0" class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand"><a href="#">ProjectName</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Team</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li class="dropdown-header">Dropdown heading</li>
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Follow me</a></li>
-        </ul>
-      </nav>
-      <div ng-view=""></div>
     </div>
 
-    <div ng-if="logedIn" class="container" ng-class="{'container-full-width': projectId}">
+    <div ng-if="logedIn" class="container" ng-class="{'container-full-width': projectId > 0}">
       <div class="footer">
         <div class="row">
           <div class="col-md-5">
@@ -165,6 +167,36 @@
        ga('send', 'pageview');
     </script>
 
+    <script>
+      $(document).ready(function () {
+        var trigger = $('.hamburger'),
+            overlay = $('.overlay'),
+           isClosed = false;
+
+          trigger.click(function () {
+            hamburger_cross();
+          });
+
+          function hamburger_cross() {
+
+            if (isClosed == true) {
+              overlay.hide();
+              trigger.removeClass('is-open');
+              trigger.addClass('is-closed');
+              isClosed = false;
+            } else {
+              overlay.show();
+              trigger.removeClass('is-closed');
+              trigger.addClass('is-open');
+              isClosed = true;
+            }
+        }
+
+        $('[data-toggle="offcanvas"]').click(function () {
+              $('#wrapper').toggleClass('toggled');
+        });
+      });
+    </script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -180,18 +212,18 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/message.js"></script>
-        <script src="scripts/controllers/search.js"></script>
-        <script src="scripts/controllers/project.js"></script>
-        <script src="scripts/controllers/publicdataset.js"></script>
-        <script src="scripts/controllers/profile.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/register.js"></script>
-        <script src="scripts/controllers/dataset.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/message.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/project.js"></script>
+    <script src="scripts/controllers/publicdataset.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/dataset.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

@@ -8,11 +8,11 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('ProjectCtrl', function () {
-
+  .controller('ProjectCtrl', ['$rootScope', function ($rootScope)  {
+    $rootScope.projectId = 1;
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);
