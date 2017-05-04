@@ -9,6 +9,7 @@
  */
 angular.module('dashboardApp')
   .controller('ProjectCtrl', function () {
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

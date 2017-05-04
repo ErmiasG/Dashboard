@@ -6,7 +6,7 @@
 }
 
 body {
-  padding: 0;
+  padding: 70px;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -14,19 +14,6 @@ body {
 .footer {
   padding-left: 15px;
   padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
 }
 
 .nav-pills > .active > a {
@@ -59,7 +46,7 @@ body {
   line-height: 0;
 }
 
- .project-panel-heading {
+.project-panel-heading {
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -77,7 +64,7 @@ body {
   margin: 0;
 }
 
-.header .navbar-search {
+.navbar-search {
   background-color: rgba(255,255,255,0.125);
   outline: none;
   border: none !important;
@@ -134,11 +121,6 @@ body {
   line-height: 1;
   vertical-align: middle;
   border-radius: 3px;
-}
-
-.navbar {
-  border-radius: 0 !important;
-  margin-bottom: 0 !important;
 }
 
 .dropdown-menu > li > a > i {
