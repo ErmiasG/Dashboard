@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angular-growl'
+    'angular-growl',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

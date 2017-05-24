@@ -61,7 +61,7 @@
   color: white;
   content: "\f0c9"; /*"\f0c9"; "\f00d";*/
   display: block;
-  padding: 20px 15px 20px 15px;
+  padding: 10px 10px 10px 5px;
   position: fixed;
   top: 54px;
   -webkit-transition: all 0.5s ease-in-out;

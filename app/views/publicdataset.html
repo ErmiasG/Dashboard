@@ -1,1 +1,70 @@
-<p>This is the publicDataset view.</p>
+<nav class="publicdataset-nav" id="publicdataset">
+  <ul>
+    <li class="publicdataset-heading">Public Datasets</li>
+    <li class="dropdown keep-open">
+      <a id="dLabel" class="publicdataset-nav-item dropdown-toggle" data-toggle="dropdown"> New</a>
+      <ul class="dropdown-menu" role="menu">
+        <form>
+          <li ng-repeat="ds in publicDataset.publicdatasetsNew">
+            <span class="publicdataset-nav-text">
+              <a ng-click="publicDataset.selected = ds">{{ds}}</a>
+            </span>
+          </li>
+        </form>
+      </ul>
+    </li>
+    <li class="dropdown keep-open">
+      <a id="dLabel" class="publicdataset-nav-item dropdown-toggle" data-toggle="dropdown"> Top Rated</a>
+      <ul class="dropdown-menu" role="menu">
+        <form>
+          <li ng-repeat="ds in publicDataset.publicdatasetsRate">
+            <span class="publicdataset-nav-text">
+              <a ng-click="publicDataset.selected = ds">{{ds}}</a>
+            </span>
+          </li>
+        </form>
+      </ul>
+    </li>
+    <li class="dropdown keep-open">
+      <a id="dLabel" class="publicdataset-nav-item dropdown-toggle" data-toggle="dropdown"> Most Downloaded</a>
+      <ul class="dropdown-menu" role="menu">
+        <form>
+          <li ng-repeat="ds in publicDataset.publicdatasetsDownload">
+            <span class="publicdataset-nav-text">
+              <a ng-click="publicDataset.selected = ds">{{ds}}</a>
+            </span>
+          </li>
+        </form>
+      </ul>
+    </li>
+    <li class="dropdown keep-open open">
+      <a id="dLabel" class="publicdataset-nav-item dropdown-toggle"
+         ng-click="publicDataset.selected = undefined"
+         data-toggle="dropdown"> All</a>
+      <ul class="dropdown-menu" role="menu">
+        <form>
+          <li ng-repeat="ds in publicDataset.publicdatasetsAll">
+            <span class="publicdataset-nav-text">
+              <a ng-click="publicDataset.selected = ds">{{ds}}</a>
+            </span>
+          </li>
+        </form>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<article class="publicdataset-view">
+  <h3 class="publicdataset-view-heading">{{publicDataset.selected}}</h3>
+  <div ng-if="publicDataset.selected !== undefined" class="publicdataset-view-rating">
+    <div ng-init="y = 2"><span uib-rating ng-model="y" aria-labelledby="custom-icons-2">
+      </span> <b>(<i>Rate this dataset: </i> {{y}})</b>
+    </div>
+  </div>
+  <br>
+  <div ng-if="publicDataset.selected !== undefined" class="publicdataset-view-content">
+    <div class="panel panel-default">
+      <div class="panel-heading">README.md</div>
+      <div class="panel-body">Panel Content</div>
+    </div>
+  </div>
+</article>
