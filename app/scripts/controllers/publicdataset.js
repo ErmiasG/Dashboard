@@ -45,17 +45,17 @@ angular.module('dashboardApp')
 
     this.init = function () {
       $('.keep-open').on({
-          "shown.bs.dropdown": function() { $(this).attr('closable', false); },
-          "click":             function() { },
-          "hide.bs.dropdown":  function() { console.log($(this).attr('closable') == 'true'); return $(this).attr('closable') == 'true'; }
+          'shown.bs.dropdown': function() { $(this).attr('closable', false); },
+          'click':             function() { },
+          'hide.bs.dropdown':  function() { return $(this).attr('closable') === 'true'; }
       });
 
       $('.keep-open #dLabel').on({
-        "click": function() {
+        'click': function() {
           console.log('foo');
           $(this).parent().attr('closable', true );
         }
       });
-    }
+    };
     this.init();
   });
