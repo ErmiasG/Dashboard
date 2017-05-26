@@ -8,13 +8,13 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('PublicdatasetCtrl', function () {
+  .controller('PublicdatasetCtrl', [ function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    this.publicdatasetsAll = ['1000 Cannabis Genomes Project','Chicago Crime Data',
+    this.publicdatasetsAll = ['Open Street Map', '1000 Cannabis Genomes Project','Chicago Crime Data',
                            'Bay Area Bike Share Trips Data','GDELT Books Corpus','GitHub Data',
                            'Hacker News','Healthcare Common Procedure Coding System (HCPCS) Level II',
                            'IRS 990 Data','Major League Baseball','Medicare',
@@ -29,16 +29,16 @@ angular.module('dashboardApp')
                            'Bike Share Trips Data','Books Corpus','GitHub code Data'];
 
     this.publicdatasetsRate = ['1000 Cannabis Genomes Project','Chicago Crime Data',
-                            'Bay Area Bike Share Trips Data','GDELT Books Corpus','GitHub Data',
+                            'Open Street Map','GDELT Books Corpus','GitHub Data',
                             'Hacker News','Healthcare Common Procedure Coding System (HCPCS) Level II',
                             'IRS 990 Data','Major League Baseball','Medicare'];
 
     this.publicdatasetsDownload = ['San Francisco Fire Department Service Calls Data','San Francisco Police Reports Data',
                            'San Francisco Street Trees Data','Stack Overflow','USA Bureau of Labor Statistics',
                            'United States Census Data','United States Census Bureau International Data','USA Disease Data',
-                           'USA Names Data','Sample Tables'];
+                           'USA Names Data','Open Street Map'];
 
-    this.publicdatasetsNew = ['IRS 990 Data','Major League Baseball','Medicare',
+    this.publicdatasetsNew = ['Open Street Map','Major League Baseball','Medicare',
                             'NOAA GHCN Weather','NOAA GSOD Weather','NYC 311 Service Requests',
                             'NYC Citi Bike Trips','NYC TLC Trips','NYC Tree Census',
                             'NYPD Motor Vehicle Collisions'];
@@ -56,6 +56,19 @@ angular.module('dashboardApp')
           $(this).parent().attr('closable', true );
         }
       });
+      $(window).scroll(function(){
+          $('#publicdataset').css({
+              'top': $(this).scrollTop() + 90
+          });
+      });
     };
     this.init();
-  });
+
+    this.selectCategory = function (category, selectedDsList) {
+      this.selected = undefined;
+      this.category = category;
+      this.selectedDsList = selectedDsList;
+    };
+
+    this.readme = '<p><img src=\"https:\/\/www.cyclestreets.net\/blog\/wp-content\/uploads\/openstreetmap.jpg\" alt=\"OSM\" \/><\/p>\r\n\r\n<p><strong>From: 30th March 2017<\/strong><\/p>\r\n\r\n<h1 id=\"openstreetmap\">Open Street Map<\/h1>\r\n\r\n<p>This dataset contains Open Street Maps in the following formats:<\/p>\r\n\r\n<ul>\r\n<li>.osm (~750GB)<\/li>\r\n\r\n<li>parquet<\/li>\r\n<\/ul>\r\n\r\n<p>We converted the .osm file to parquet using osm-parquetizer [1].<\/p>\r\n\r\n<h2 id=\"parquetusageforzeppelinbyadrianbona\">Parquet Usage for Zeppelin (by Adrian Bona)<\/h2>\r\n\r\n<hr \/>\r\n\r\n<p>Some notes on how to use the Parquet file follows.<\/p>\r\n\r\n<h3 id=\"registertheparquetfilesassparksqltablesinzeppelin\">Register the parquet files as Spark SQL tables in Zeppelin<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"scala language-scala\">%spark\r\nval nodeDF = sqlContext.read.parquet(\"file:\/tmp\/osm\/romania-latest.osm.pbf.node.parquet\")\r\nnodeDF.createOrReplaceTempView(\"nodes\")\r\n\r\nval wayDF = sqlContext.read.parquet(\"file:\/tmp\/osm\/romania-latest.osm.pbf.way.parquet\")\r\nwayDF.createOrReplaceTempView(\"ways\")\r\n\r\nval relationDF = sqlContext.read.parquet(\"file:\/tmp\/osm\/romania-latest.osm.pbf.relation.parquet\")\r\nrelationDF.createOrReplaceTempView(\"relations\")\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"sparksqlinzeppelin\">SparkSQL in Zeppelin<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"sql language-sql\">%sql \r\nselect * from nodes\r\n\r\n%sql \r\nselect * from ways\r\n\r\n%sql\r\nselect * from relations\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"top10usersbasedonnodecount\">Top 10 users based on node count?<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"sql language-sql\">%sql \r\nselect user_sid, count(*) as node_count from nodes group by user_sid order by node_count desc limit 10\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"nodecountevolutionfortop10activeusers\">Node count evolution for top 10 active users?<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"sql language-sql\">%sql\r\nselect \r\n    user_sid, \r\n    year(from_unixtime(timestamp \/ 1000)) as year,\r\n    count(*) as node_count\r\nfrom \r\n    nodes\r\nwhere \r\n    user_sid in (select user_sid from (select user_sid, count(*) as c from nodes group by user_sid order by c desc limit 10))\r\n    and \r\n    year(from_unixtime(timestamp \/ 1000)) &gt; 2010\r\ngroup by \r\n    user_sid, \r\n    year(from_unixtime(timestamp \/ 1000))\r\norder by \r\n    year\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"aboundingboxtheroadgeometriesnodeswithwaysjoin\">A bounding box, the road geometries? (nodes with ways join)<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"scala language-scala\">import org.apache.spark.sql.functions._\r\n\r\nval wayNodeDF = wayDF\r\n  .filter(array_contains($\"tags.key\", \"highway\"))\r\n  .select($\"id\".as(\"wayId\"), $\"user_sid\", explode($\"nodes\").as(\"indexedNode\"))\r\n\r\nval nodeLatLonDF = nodeDF\r\n  .filter($\"latitude\" &lt; 46.85 and $\"latitude\" &gt; 46.67 and $\"longitude\" &lt; 23.73 and $\"longitude\" &gt; 23.38)\r\n  .select($\"id\".as(\"nodeId\"), $\"latitude\", $\"longitude\")\r\n\r\nval wayGeometryDF = wayNodeDF.join(nodeLatLonDF, $\"indexedNode.nodeId\" === $\"nodeId\")\r\n  .groupBy($\"wayId\", $\"user_sid\")\r\n  .agg(collect_list(struct($\"indexedNode.index\", $\"latitude\", $\"longitude\")).as(\"geometry\"))\r\n\r\nwayGeometryDF.createOrReplaceTempView(\"wayGeometry\")\r\n<\/code><\/pre>\r\n\r\n<pre><code class=\"sql language-sql\">%sql\r\nselect * from wayGeometry\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"thegeometrycolumnaswktusingjts\">The geometry column as WKT? (using JTS)<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"scala language-scala\">import com.vividsolutions.jts.io.WKTWriter\r\nimport com.vividsolutions.jts.geom.{Coordinate, Geometry, GeometryFactory}\r\n\r\ncase class IndexedNode(index: Int, coord: Coordinate)\r\n\r\ndef nodesToWKT(nodes: Seq[Row]): String = {\r\n    val indexedCoords = nodes.map { \r\n      case Row(index: Int, lat: Double, lon:Double) =&gt; IndexedNode(index, new Coordinate(lon, lat))\r\n    }\r\n    val coords = indexedCoords.sortBy(_.index).map(_.coord).toArray\r\n    new WKTWriter().write(new GeometryFactory().createLineString(coords))\r\n}\r\n\r\nval wkt = udf {\r\n  (nodes: Seq[Row]) =&gt; nodesToWKT(nodes)\r\n}\r\n\r\nval wayWKTDF = wayGeometryDF\r\n  .filter(size($\"geometry\") &gt; 1)\r\n  .select($\"wayId\", $\"user_sid\", wkt($\"geometry\").as(\"geometry\"))\r\nwayWKTDF.createOrReplaceTempView(\"wayWKT\")\r\n<\/code><\/pre>\r\n\r\n<pre><code class=\"sql language-sql\">%sql\r\nselect * from wayWKT\r\n<\/code><\/pre>\r\n\r\n<h3 id=\"whomapswherewktgeometriesoncartocom\">Who maps where? (WKT geometries on carto.com)<\/h3>\r\n\r\n<hr \/>\r\n\r\n<pre><code class=\"javascript language-javascript\">displayHTML(\"&lt;iframe width=\\\"100%\\\" height=\\\"520\\\" frameborder=\\\"0\\\" src=\\\"https:\/\/adrianulbona.carto.com\/viz\/b4a276e6-c47b-11e6-8ea3-0e3ff518bd15\/embed_map\\\" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;\/iframe&gt;\")\r\n<\/code><\/pre>\r\n\r\n<p>References<\/p>\r\n\r\n<ul>\r\n<li>[0] http:\/\/wiki.openstreetmap.org\/wiki\/OSM<em>file<\/em>formats<\/li>\r\n\r\n<li>[1] http:\/\/wiki.openstreetmap.org\/wiki\/Osm-parquetizer<\/li>\r\n\r\n<li>[2] https:\/\/github.com\/adrianulbona\/osm-parquetizer<\/li>\r\n\r\n<li>[3] http:\/\/adrianulbona.github.io\/2016\/12\/18\/osm-parquetizer.html<\/li>\r\n<\/ul>';
+  }]);

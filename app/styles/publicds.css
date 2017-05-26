@@ -2,14 +2,13 @@
     background: #f7f7f7;
     float: left;
     margin-right: 40px;
-    margin-bottom: 10px;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 10px;
     width: 256px;
-    min-height: 780px;
-    max-height: 780px;
-    position: fixed;
+    min-height: 875px;
+    max-height: 875px;
+    position: absolute;;
 }
 
 .publicdataset-nav > ul {
@@ -96,13 +95,13 @@
 
 .publicdataset-view-rating {
   float: right;
-  padding-top: 25px;
+  padding-top: 12px;
   max-width: 30%;
 }
 
 .publicdataset-view-content {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #publicdataset::-webkit-scrollbar-track {
