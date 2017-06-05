@@ -8,12 +8,50 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('PublicdatasetCtrl', [ function () {
+  .controller('PublicdatasetCtrl', ['$location', '$anchorScroll', function ($location, $anchorScroll) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    this.publicdatasets = [{'name':'Open Street Map', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'1000 Cannabis Genomes Project', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Chicago Crime Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Bay Area Bike Share Trips Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'GDELT Books Corpus', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'GitHub Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Hacker News', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Healthcare Common Procedure Coding System (HCPCS) Level II', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Medicare', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Major League Baseball', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'IRS 990 Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NOAA GHCN Weather', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NOAA GSOD Weather', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NYC 311 Service Requests', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NYC Citi Bike Trips', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NYC TLC Trips', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'NYPD Motor Vehicle Collisions', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Open Images', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'San Francisco 311 Service Requests Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'San Francisco Fire Department Service Calls Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'San Francisco Police Reports Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'San Francisco Street Trees Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Stack Overflow', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'USA Bureau of Labor Statistics', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'United States Census Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'United States Census Bureau International Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'USA Disease Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'GitHub code Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Books Corpus', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Bike Share Trips Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Disease Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Bureau International Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Census Data', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'Sample Tables 2', 'description': 'This dataset contains Open Street Maps'},
+                           {'name':'USA Names Data 3', 'description': 'This dataset contains USA Names'},
+                           {'name':'Disease Data 2', 'description': 'This dataset contains Disease Data'}];
+
     this.publicdatasetsAll = ['Open Street Map', '1000 Cannabis Genomes Project','Chicago Crime Data',
                            'Bay Area Bike Share Trips Data','GDELT Books Corpus','GitHub Data',
                            'Hacker News','Healthcare Common Procedure Coding System (HCPCS) Level II',
@@ -43,6 +81,19 @@ angular.module('dashboardApp')
                             'NYC Citi Bike Trips','NYC TLC Trips','NYC Tree Census',
                             'NYPD Motor Vehicle Collisions'];
 
+    this.comments = [{'name': 'DarkCubes', 'date': '2017-06-05T11:01:31.137Z', 'message': 'A data set (or dataset) is a collection of data. Most commonly a data set corresponds to the contents of a single database table, or a single statistical data matrix, where every column of the table represents a particular variable, and each row corresponds to a given member of the data set in question.'},
+                     {'name': 'LightCubes', 'date': '2017-04-05T11:01:31.137Z', 'message': 'I just made a comment about this dataset'},
+                     {'name': 'GrayCubes', 'date': '2017-02-05T11:01:31.137Z', 'message': '@DarkCubes I do not think that is a thing.'},
+                     {'name': 'BlueCubes', 'date': '2017-01-05T11:01:31.137Z', 'message': 'I just made a comment about this dataset <a href="www.kth.se">www.kth.se</a>'},
+                     {'name': 'RedCubes', 'date': '2016-06-05T11:01:31.137Z', 'message': 'Are you sure @LightCubes'},
+                     {'name': 'YellowCubes', 'date': '2015-06-05T11:01:31.137Z', 'message': '<span onmouseover="this.textContent=\'PWN3D!\'">Is <i>anyone</i> reading this?</span>'}];
+
+    this.gotoComment = function () {
+      var old = $location.hash();
+      $location.hash('commentbtn');
+      $anchorScroll();
+      $location.hash(old);
+    }
     this.init = function () {
       $('.keep-open').on({
           'shown.bs.dropdown': function() { $(this).attr('closable', false); },
