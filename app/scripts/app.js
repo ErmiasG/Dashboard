@@ -71,7 +71,7 @@ angular
       });
   })
   .filter('highlight', function() {
-    return function(text, phras) {
+    return function(text) {
       var matches = text.match(/@\w+/g);
       if (matches) {
         text = text.replace(matches, '<span class="highlighted">'+matches+'</span>');

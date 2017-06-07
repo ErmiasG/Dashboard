@@ -147,6 +147,16 @@
   margin-top: 10px;
 }
 
+.publicdataset-issue {
+  cursor: pointer;
+}
+
+.publicdataset-issue:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #337ab7 !important;
+}
+
 .highlighted {
   font-weight: normal;
   font-style: italic;

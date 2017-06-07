@@ -93,7 +93,8 @@ angular.module('dashboardApp')
       $location.hash('commentbtn');
       $anchorScroll();
       $location.hash(old);
-    }
+    };
+
     this.init = function () {
       $('.keep-open').on({
           'shown.bs.dropdown': function() { $(this).attr('closable', false); },
