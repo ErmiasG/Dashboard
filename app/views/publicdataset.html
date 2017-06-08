@@ -86,7 +86,8 @@
   <div ng-if="publicDataset.selected !== undefined" class="publicdataset-view-content">
     <div class="panel panel-default">
       <div class="panel-heading">README.md <a class="publicdataset-issue pull-right text-muted"
-           title="Report issues with licence, content of the dataset, or the documentation.">Report issue</a></div>
+           title="Report issues with licence, content of the dataset, or the documentation."
+           ng-click="publicDataset.report()">Report issue</a></div>
       <div ng-if="publicDataset.selected !== 'Open Street Map'" class="panel-body">No readme file.</div>
       <div ng-if="publicDataset.selected === 'Open Street Map'" class="panel-body" ng-bind-html="publicDataset.readme"></div>
     </div>
@@ -98,7 +99,9 @@
           <div class="publicdataset-comment">
             <span class="text-muted"><b>{{comment.name}}</b> commented | on {{comment.date | date:'medium'}}</span>
             <div class="publicdataset-comment-msg" ng-bind-html="comment.message | highlight"></div>
-            <a class="publicdataset-issue text-muted pull-right" title="You can report content that violate the law or our Terms and Conditions.">Report abuse</a>
+            <a class="publicdataset-issue text-muted pull-right"
+               title="You can report content that violate the law or our Terms and Conditions."
+               ng-click="publicDataset.report()">Report abuse</a>
           </div>
           <hr>
         </div>

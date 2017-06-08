@@ -69,13 +69,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
-  .filter('highlight', function() {
-    return function(text) {
-      var matches = text.match(/@\w+/g);
-      if (matches) {
-        text = text.replace(matches, '<span class="highlighted">'+matches+'</span>');
-      }
-      return text;
-    };
   });

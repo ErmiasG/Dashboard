@@ -8,7 +8,7 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('PublicdatasetCtrl', ['$location', '$anchorScroll', function ($location, $anchorScroll) {
+  .controller('PublicdatasetCtrl', ['$location', '$anchorScroll', 'ModalService', function ($location, $anchorScroll, ModalService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -93,6 +93,14 @@ angular.module('dashboardApp')
       $location.hash('commentbtn');
       $anchorScroll();
       $location.hash(old);
+    };
+
+    this.report = function () {
+      ModalService.inputModal('md', 'Report issue').then ( function (success) {
+        console.log(success);
+      }, function (error) {
+        console.log(error);
+      });
     };
 
     this.init = function () {

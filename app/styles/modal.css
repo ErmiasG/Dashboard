@@ -1,0 +1,12 @@
+.modal-header {
+  background-color: rgba(0, 0, 0, 0.80);/*(96, 125, 139);*/
+  color: #fff;
+}
+
+.modal-content {
+  background-color: rgb(247, 247, 247);
+}
+
+.modal-body > textarea {
+  resize: vertical;  
+}
